@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fireTopLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:keepScreenOn="true"
+    android:orientation="vertical">
+
+    <com.example.detectorapp.CameraClasses.CameraSourcePreview
+        android:id="@+id/firePreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" >
+
+        <com.example.detectorapp.CameraClasses.GraphicOverlay
+            android:id="@+id/fireFaceOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true" />
+    </com.example.detectorapp.CameraClasses.CameraSourcePreview>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="80dp"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:id="@+id/control"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_toEndOf="@id/firePreview"
+        android:background="#000">
+
+        <ToggleButton
+            android:id="@+id/facingswitch"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="@drawable/toggle_layout"
+            android:textOff=""
+            android:textOn=""
+            android:checked="false" />
+    </FrameLayout>
+
+</RelativeLayout>
