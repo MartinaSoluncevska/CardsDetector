@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\7189e7d837a51bd165e3957feea60911\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\9e723f84a4643d9caeaa404637e78eed\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:transition:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\eeb750c7b29b2466e74f99df37e21642\AndroidManifest.xml:17:1-28:12
@@ -36,30 +36,31 @@ MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Martina\.gradle\cac
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\ec9761445f327fb0de1f5c1f967d3cc7\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:exifinterface:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\exifinterface-26.1.0.aar\5eb75fd702f8c62171b747c7a886de81\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\f70aac492ec112d93cb2a70a0e0ef2e5\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:cardview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\cardview-v7-26.1.0.aar\117cab7a69cb6607bb9db8096eef5e06\AndroidManifest.xml:17:1-28:12
 MERGED from [org.tensorflow:tensorflow-lite:1.10.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\tensorflow-lite-1.10.0.aar\3ea81337179d25042321b921070d45c4\AndroidManifest.xml:2:1-6:12
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\cc6e4df79ee65fbb5c67f18869c8c706\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\7743139404e4e187c9aae7f7b4da55ed\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\886790f64c47611f782bbf83ade922f5\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\516462056bacb10b485d442f549a3cc9\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\13818f371c080ad735068bec064ab12c\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7324c45f1b98290ee211c7125a3642a9\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\8c966c13457747b2cb5a49a2c58fa714\AndroidManifest.xml:17:1-30:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\bbce4fcefebdd638e8587bf3d3faabdc\AndroidManifest.xml:2:1-9:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
 	package
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:11-69
@@ -92,7 +93,7 @@ ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.x
 	android:name
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:10:19-67
 application
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:12:5-26:19
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:12:5-32:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\7189e7d837a51bd165e3957feea60911\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\7189e7d837a51bd165e3957feea60911\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\9e723f84a4643d9caeaa404637e78eed\AndroidManifest.xml:25:5-29:19
@@ -147,6 +148,10 @@ MERGED from [com.android.support:exifinterface:26.1.0] C:\Users\Martina\.gradle\
 MERGED from [com.android.support:exifinterface:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\exifinterface-26.1.0.aar\5eb75fd702f8c62171b747c7a886de81\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\f70aac492ec112d93cb2a70a0e0ef2e5\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\f70aac492ec112d93cb2a70a0e0ef2e5\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:cardview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\cardview-v7-26.1.0.aar\117cab7a69cb6607bb9db8096eef5e06\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:cardview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\cardview-v7-26.1.0.aar\117cab7a69cb6607bb9db8096eef5e06\AndroidManifest.xml:22:5-26:19
 MERGED from [org.tensorflow:tensorflow-lite:1.10.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\tensorflow-lite-1.10.0.aar\3ea81337179d25042321b921070d45c4\AndroidManifest.xml:4:5-5:19
 MERGED from [org.tensorflow:tensorflow-lite:1.10.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\tensorflow-lite-1.10.0.aar\3ea81337179d25042321b921070d45c4\AndroidManifest.xml:4:5-5:19
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\cc6e4df79ee65fbb5c67f18869c8c706\AndroidManifest.xml:22:5-26:19
@@ -157,8 +162,6 @@ MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Martina\.grad
 MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\886790f64c47611f782bbf83ade922f5\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\516462056bacb10b485d442f549a3cc9\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\516462056bacb10b485d442f549a3cc9\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\13818f371c080ad735068bec064ab12c\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\13818f371c080ad735068bec064ab12c\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7324c45f1b98290ee211c7125a3642a9\AndroidManifest.xml:25:5-29:19
@@ -178,27 +181,39 @@ MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Us
 	android:allowBackup
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:18:9-45
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:18:9-40
 activity#com.example.detectorapp.MainActivity
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:19:9-25:20
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:19:9-26:20
+	android:label
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:20:13-45
+	android:theme
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:21:13-56
 	android:name
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:19:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:22:13-25:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:24:27-74
+activity#com.example.detectorapp.DetectingActivity
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:28:9-31:58
+	android:parentActivityName
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:31:13-55
+	android:label
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:30:13-45
+	android:name
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:29:13-46
 meta-data#com.google.firebase.ml.vision.DEPENDENCIES
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:28:5-30:52
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:34:5-36:52
 	android:value
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:30:9-49
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:36:9-49
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:29:9-66
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:35:9-66
 uses-sdk
 INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
@@ -267,6 +282,10 @@ MERGED from [com.android.support:exifinterface:26.1.0] C:\Users\Martina\.gradle\
 MERGED from [com.android.support:exifinterface:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\exifinterface-26.1.0.aar\5eb75fd702f8c62171b747c7a886de81\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\f70aac492ec112d93cb2a70a0e0ef2e5\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\f70aac492ec112d93cb2a70a0e0ef2e5\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\cardview-v7-26.1.0.aar\117cab7a69cb6607bb9db8096eef5e06\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\cardview-v7-26.1.0.aar\117cab7a69cb6607bb9db8096eef5e06\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\cc6e4df79ee65fbb5c67f18869c8c706\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\cc6e4df79ee65fbb5c67f18869c8c706\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\7743139404e4e187c9aae7f7b4da55ed\AndroidManifest.xml:20:5-44
@@ -275,8 +294,6 @@ MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Martina\.grad
 MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\886790f64c47611f782bbf83ade922f5\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\516462056bacb10b485d442f549a3cc9\AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\516462056bacb10b485d442f549a3cc9\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\13818f371c080ad735068bec064ab12c\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\13818f371c080ad735068bec064ab12c\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7324c45f1b98290ee211c7125a3642a9\AndroidManifest.xml:21:5-23:58
@@ -309,6 +326,10 @@ MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Martina\.
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\ec9761445f327fb0de1f5c1f967d3cc7\AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:exifinterface:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\exifinterface-26.1.0.aar\5eb75fd702f8c62171b747c7a886de81\AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:exifinterface:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\exifinterface-26.1.0.aar\5eb75fd702f8c62171b747c7a886de81\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:cardview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\cardview-v7-26.1.0.aar\117cab7a69cb6607bb9db8096eef5e06\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:cardview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\cardview-v7-26.1.0.aar\117cab7a69cb6607bb9db8096eef5e06\AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\cc6e4df79ee65fbb5c67f18869c8c706\AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\cc6e4df79ee65fbb5c67f18869c8c706\AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\7743139404e4e187c9aae7f7b4da55ed\AndroidManifest.xml:23:9-25:38
@@ -317,8 +338,6 @@ MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Martina\.grad
 MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\886790f64c47611f782bbf83ade922f5\AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\516462056bacb10b485d442f549a3cc9\AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\516462056bacb10b485d442f549a3cc9\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\49b9d23d8fd584a0251ff017da84cb3f\AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\13818f371c080ad735068bec064ab12c\AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\13818f371c080ad735068bec064ab12c\AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7324c45f1b98290ee211c7125a3642a9\AndroidManifest.xml:26:9-28:38
@@ -474,9 +493,9 @@ ADDED from [com.google.android.gms:play-services-basement:16.1.0] C:\Users\Marti
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:16.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.1.0.aar\9b6dfa094f326dc5aaa3bcb91c79b231\AndroidManifest.xml:24:13-58
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12 reason: org.tensorflow.lite has a targetSdkVersion < 4
+IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12 reason: org.tensorflow.lite has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-31:12 reason: org.tensorflow.lite requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12 reason: org.tensorflow.lite requested WRITE_EXTERNAL_STORAGE
 meta-data#android.arch.lifecycle.VERSION
 ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\8c966c13457747b2cb5a49a2c58fa714\AndroidManifest.xml:25:9-27:47
 	android:value

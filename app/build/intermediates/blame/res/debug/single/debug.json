@@ -328,12 +328,12 @@
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\drawable-xhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_snackbar_background.xml.flat",
-        "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\7189e7d837a51bd165e3957feea60911\\res\\drawable\\design_snackbar_background.xml"
-    },
-    {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_snackbar_background.xml.flat",
+        "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\7189e7d837a51bd165e3957feea60911\\res\\drawable\\design_snackbar_background.xml"
     },
     {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
@@ -848,6 +848,10 @@
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
+        "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_add_white_24dp.xml.flat",
+        "source": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\src\\main\\res\\drawable\\ic_add_white_24dp.xml"
+    },
+    {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_select_dialog_singlechoice_material.xml.flat",
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
@@ -1052,6 +1056,10 @@
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\7189e7d837a51bd165e3957feea60911\\res\\color\\design_tint_password_toggle.xml"
     },
     {
+        "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_recycler_view_item.xml.flat",
+        "source": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\src\\main\\res\\layout\\recycler_view_item.xml"
+    },
+    {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
@@ -1078,6 +1086,10 @@
     {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_longpressed_holo.9.png.flat",
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\drawable-mdpi-v4\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_detection.xml.flat",
+        "source": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\src\\main\\res\\layout\\activity_detection.xml"
     },
     {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
@@ -1294,6 +1306,10 @@
     {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_eurofarm.jpg.flat",
+        "source": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\src\\main\\res\\drawable\\eurofarm.jpg"
     },
     {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
@@ -1600,6 +1616,10 @@
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\anim\\abc_slide_out_top.xml"
     },
     {
+        "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_verna.jpg.flat",
+        "source": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\src\\main\\res\\drawable\\verna.jpg"
+    },
+    {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
@@ -1886,6 +1906,10 @@
     {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_background_transition_holo_dark.xml.flat",
         "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_vero.jpg.flat",
+        "source": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\src\\main\\res\\drawable\\vero.jpg"
     },
     {
         "merged": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
