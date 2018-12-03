@@ -1,12 +1,15 @@
-package com.example.detectorapp.RecyclerView;
+package com.example.detectorapp.recyclerview;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.detectorapp.R;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -24,6 +27,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         // Inflate the RecyclerView item layout xml.
         final View itemView = layoutInflater.inflate(R.layout.recycler_view_item, parent, false);
         final ImageView imageView = (ImageView)itemView.findViewById(R.id.recycler_view_item_image);
+        final TextView txtTitle = (TextView) itemView.findViewById(R.id.titleTxt);
+        final TextView txtBarcode = (TextView) itemView.findViewById(R.id.barcodeTxt);
 
         MyViewHolder ret = new MyViewHolder(itemView);
         return ret;

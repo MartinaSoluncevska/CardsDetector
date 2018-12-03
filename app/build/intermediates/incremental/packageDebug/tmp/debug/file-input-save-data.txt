@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Nov 17 20:25:28 CET 2018
+#Sun Dec 02 19:41:15 CET 2018
 4.path=classes.dex
 8.set=NATIVE_RESOURCE
 6.path=classes.dex

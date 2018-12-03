@@ -487,6 +487,7 @@ color cardview_shadow_start_color
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
+color colorWhite
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -833,7 +834,6 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
-drawable eurofarm
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_add_white_24dp
@@ -857,8 +857,7 @@ drawable notify_panel_notification_icon_bg
 drawable toggle_layout
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
-drawable verna
-drawable vero
+drawable verocard
 id ALT
 id CTRL
 id FUNCTION
@@ -894,12 +893,14 @@ id always
 id appname
 id async
 id auto
+id barcodeTxt
 id barrier
 id beginning
 id blocking
 id bottom
 id buttonPanel
 id cancel_action
+id cardtoolbar
 id center
 id center_horizontal
 id center_vertical
@@ -908,11 +909,13 @@ id checkbox
 id chronometer
 id clip_horizontal
 id clip_vertical
+id codeTxt
 id collapseActionView
 id container
 id contentPanel
 id control
 id coordinator
+id cover
 id custom
 id customPanel
 id dark
@@ -958,6 +961,7 @@ id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id labelTxt
 id largeLabel
 id left
 id light
@@ -1047,6 +1051,7 @@ id textinput_error
 id time
 id title
 id titleDividerNoCustom
+id titleTxt
 id title_template
 id top
 id topPanel
@@ -1135,6 +1140,7 @@ layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout recycler_view_item
+layout results_view
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -1176,6 +1182,7 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
 string appbar_scrolling_view_behavior
+string barcode_title
 string bottom_sheet_behavior
 string camera_disabled
 string camera_disconnected
@@ -1205,7 +1212,6 @@ string common_signin_button_text
 string common_signin_button_text_long
 string default_web_client_id
 string desc_camera_source_activity
-string desc_still_image_activity
 string firebase_database_url
 string gcm_defaultSenderId
 string google_api_key
@@ -1222,7 +1228,6 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
-string permission_camera_rationale
 string picture
 string project_id
 string search_menu_title
@@ -1230,6 +1235,7 @@ string settings
 string status_bar_notification_info_overflow
 string toggle_turn_off
 string toggle_turn_on
+string type_title
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -1238,7 +1244,6 @@ style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style AppTheme
 style AppTheme_AppBarOverlay
-style AppTheme_NoActionBar
 style AppTheme_PopupOverlay
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
@@ -1407,6 +1412,7 @@ style Base_Widget_Design_TabLayout
 style CardView
 style CardView_Dark
 style CardView_Light
+style NoActionBar
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_ThemeOverlay_AppCompat

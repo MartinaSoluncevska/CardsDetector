@@ -51,20 +51,11 @@ public class CustomImageClassifier {
     //Name of the floating point model uploaded to the Firebase console
     private static final String HOSTED_FLOAT_MODEL_NAME = "optimized_graph";
 
-    // Name of the quantized model file.
-    //private static final String LOCAL_QUANT_MODEL_NAME = "mobilenet_quant_v2_1.0_299";
-
-    //Path of the quantized model file stored in Assets.
-    //private static final String LOCAL_QUANT_MODEL_PATH = "mobilenet_quant_v2_1.0_299.tflite";
-
-    //Name of the quantized model uploaded to the Firebase console.
-    //private static final String HOSTED_QUANT_MODEL_NAME = "mobilenet_quant_v2_299";
-
     //Name of the label file stored in Assets.
     private static final String LABEL_PATH = "retrained_labels.txt";
 
     // Number of results to show in the UI.
-    private static final int RESULTS_TO_SHOW = 3;
+    private static final int RESULTS_TO_SHOW = 4;
 
     // Dimensions of inputs.
     private static final int DIM_BATCH_SIZE = 1;
@@ -87,6 +78,8 @@ public class CustomImageClassifier {
     //Labels corresponding to the output of the vision model.
     private final List<String> labelList;
 
+    public List<String> outputs;
+
     private final PriorityQueue<Map.Entry<String, Float>> sortedLabels = new PriorityQueue<>(RESULTS_TO_SHOW, new Comparator<Map.Entry<String, Float>>() {
         @Override
         public int compare(Map.Entry<String, Float> o1, Map.Entry<String, Float> o2) {
@@ -95,12 +88,10 @@ public class CustomImageClassifier {
     });
 
     CustomImageClassifier(Activity activity) throws FirebaseMLException {
-        //String localModelName = LOCAL_QUANT_MODEL_NAME;
-        //String hostedModelName = HOSTED_QUANT_MODEL_NAME;
-        //String localModelPath = LOCAL_QUANT_MODEL_PATH;
         String localModelName = LOCAL_FLOAT_MODEL_NAME;
         String hostedModelName = HOSTED_FLOAT_MODEL_NAME;
         String localModelPath = LOCAL_FLOAT_MODEL_PATH;
+
         FirebaseModelOptions modelOptions = new FirebaseModelOptions.Builder()
                 .setCloudModelName(hostedModelName)
                 .setLocalModelName(localModelName)
@@ -160,13 +151,12 @@ public class CustomImageClassifier {
                         new Continuation<FirebaseModelOutputs, List<String>>() {
                             @Override
                             public List<String> then(Task<FirebaseModelOutputs> task) throws Exception {
-                                //byte[][] labelProbArray = task.getResult().<byte[][]>getOutput(0);
-                                //return getTopLabels(labelProbArray);
-
                                 float[][] labelProbArray = task.getResult().<float[][]>getOutput(0);
-                                return getTopLabels(labelProbArray);
+                                outputs = getTopLabels(labelProbArray);
+                                return outputs;
                             }
                         });
+
     }
 
     /**
@@ -202,9 +192,6 @@ public class CustomImageClassifier {
             for (int j = 0; j < DIM_IMG_SIZE_Y; ++j) {
                 final int val = intValues[pixel++];
                 // Normalize the values according to the model used:
-                /*imgData.put((byte) ((val >> 16) & 0xFF));
-                imgData.put((byte) ((val >> 8) & 0xFF));
-                imgData.put((byte) (val & 0xFF));*/
                 imgData.putFloat(((val >> 16) & 0xFF) / 255.0f);
                 imgData.putFloat(((val >> 8) & 0xFF) / 255.0f);
                 imgData.putFloat((val & 0xFF) / 255.0f);
@@ -227,24 +214,14 @@ public class CustomImageClassifier {
         return Bitmap.createScaledBitmap(bitmap, DIM_IMG_SIZE_X, DIM_IMG_SIZE_Y, true);
     }
 
-    /*private synchronized List<String> getTopLabels(byte[][] labelProbArray) {
-        for (int i = 0; i < labelList.size(); ++i) {
-            sortedLabels.add(
-                    new AbstractMap.SimpleEntry<>(labelList.get(i),
-                            (labelProbArray[0][i] & 0xff) / 255.0f));
-            if (sortedLabels.size() > RESULTS_TO_SHOW) {
-                sortedLabels.poll();
-            }
-        }
-        return getTopKLabels();
-    }*/
-
     private synchronized List<String> getTopLabels(float[][] labelProbArray) {
+
         for (int i = 0; i < labelList.size(); ++i) {
             sortedLabels.add(new AbstractMap.SimpleEntry<>(labelList.get(i), labelProbArray[0][i]));
             if (sortedLabels.size() > RESULTS_TO_SHOW) {
                 sortedLabels.poll();
             }
+
         }
         return getTopKLabels();
     }

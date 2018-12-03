@@ -2,28 +2,36 @@ package com.example.detectorapp.custommodel;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.detectorapp.CameraClasses.BitmapUtils;
 import com.example.detectorapp.CameraClasses.CameraImageGraphic;
 import com.example.detectorapp.CameraClasses.FrameMetadata;
 import com.example.detectorapp.CameraClasses.GraphicOverlay;
 import com.example.detectorapp.CameraClasses.VisionImageProcessor;
-import com.example.detectorapp.custommodel.LabelGraphic;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.common.FirebaseMLException;
 
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomImageClassifierProcessor implements VisionImageProcessor {
     private static final String TAG = "Custom";
     private final CustomImageClassifier classifier;
     private final Activity activity;
+    public static CardDetectorListener cardDetectorListener;
 
-    public CustomImageClassifierProcessor(Activity activity) throws FirebaseMLException {
+    long a = System.currentTimeMillis();
+    long b = System.currentTimeMillis();
+
+    private List<String> list = new ArrayList<>();
+
+    public CustomImageClassifierProcessor(Activity activity) throws FirebaseMLException{
         this.activity = activity;
         classifier = new CustomImageClassifier(activity);
     }
@@ -35,15 +43,26 @@ public class CustomImageClassifierProcessor implements VisionImageProcessor {
                         activity,
                         new OnSuccessListener<List<String>>() {
                             @Override
-                            public void onSuccess(List<String> result) {
+                            public void onSuccess(final List<String> result) {
                                 LabelGraphic labelGraphic = new LabelGraphic(graphicOverlay, result);
                                 Bitmap bitmap = BitmapUtils.getBitmap(data, frameMetadata);
-                                CameraImageGraphic imageGraphic =
-                                        new CameraImageGraphic(graphicOverlay, bitmap);
+                                CameraImageGraphic imageGraphic = new CameraImageGraphic(graphicOverlay, bitmap);
                                 graphicOverlay.clear();
                                 graphicOverlay.add(imageGraphic);
                                 graphicOverlay.add(labelGraphic);
                                 graphicOverlay.postInvalidate();
+
+                                while (true){
+                                    list.addAll(result);
+                                    for (int i = 0; i < list.size(); i++) {
+                                        if (cardDetectorListener == null) return;
+                                        cardDetectorListener.onTypeDetected(list);
+                                        cardDetectorListener = null;
+
+                                        if(b-a >=5000) break;
+                                    }
+                                }
+
                             }
                         })
                 .addOnFailureListener(
@@ -63,5 +82,9 @@ public class CustomImageClassifierProcessor implements VisionImageProcessor {
 
     @Override
     public void stop() {
+    }
+
+    public interface CardDetectorListener {
+        void onTypeDetected (List<String> labels);
     }
 }

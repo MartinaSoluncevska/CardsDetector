@@ -9,8 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.example.detectorapp.RecyclerView.CardItem;
-import com.example.detectorapp.RecyclerView.MyAdapter;
+import com.example.detectorapp.recyclerview.CardItem;
+import com.example.detectorapp.recyclerview.MyAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,15 +40,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.appname);
         setSupportActionBar(toolbar);
 
-        //Start DetectingActivity onclick, which loads camera and its preview for detecting objects
+        //Start DetectCard Activity onclick, which loads camera and its preview for detecting objects
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, DetectingActivity.class);
+                Intent intent = new Intent(MainActivity.this, DetectCardActivity.class);
                 startActivity(intent);
             }
         });
-    }
 
+    }
 }

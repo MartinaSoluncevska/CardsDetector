@@ -34,20 +34,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name="com.example.detectorapp.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name="com.example.detectorapp.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.detectorapp.DetectingActivity"
-            android:label="@string/app_name"
-            android:parentActivityName="com.example.detectorapp.MainActivity" />
+        <activity android:name="com.example.detectorapp.DetectCardActivity" />
+        <activity android:name="com.example.detectorapp.DetectBarcodeActivity" />
+        <activity android:name="com.example.detectorapp.CreateCardActivity" />
 
         <meta-data
             android:name="android.support.VERSION"

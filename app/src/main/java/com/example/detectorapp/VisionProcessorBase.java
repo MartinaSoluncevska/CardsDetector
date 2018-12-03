@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.ml.common.FirebaseMLException;
+import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode;
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.common.FirebaseVisionImageMetadata;
 
@@ -100,12 +101,6 @@ public abstract class VisionProcessorBase<T> implements VisionImageProcessor {
 
     protected abstract Task<T> detectInImage(FirebaseVisionImage image);
 
-    /**
-     * Callback that executes with a successful detection result.
-     *
-     * @param originalCameraImage hold the original image from camera, used to draw the background
-     *                            image.
-     */
     protected abstract void onSuccess(
             @Nullable Bitmap originalCameraImage,
             @NonNull T results,

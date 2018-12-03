@@ -18,7 +18,6 @@ import android.view.WindowManager;
 import com.google.android.gms.common.images.Size;
 
 import java.io.IOException;
-import java.lang.Thread.State;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
@@ -111,6 +110,7 @@ public class CameraSource {
         graphicOverlay.clear();
         processingRunnable = new FrameProcessingRunnable();
     }
+
     /**
      * Stops the camera and releases the resources of the camera and underlying detector.
      */

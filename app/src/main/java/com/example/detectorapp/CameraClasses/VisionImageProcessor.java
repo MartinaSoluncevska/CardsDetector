@@ -2,6 +2,8 @@ package com.example.detectorapp.CameraClasses;
 
 import android.graphics.Bitmap;
 import com.google.firebase.ml.common.FirebaseMLException;
+import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode;
+
 import java.nio.ByteBuffer;
 
 public interface VisionImageProcessor {
@@ -14,4 +16,5 @@ public interface VisionImageProcessor {
 
     /** Stops the underlying machine learning model and release resources. */
     void stop();
+
 }

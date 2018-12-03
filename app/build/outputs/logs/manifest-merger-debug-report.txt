@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\7189e7d837a51bd165e3957feea60911\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\9e723f84a4643d9caeaa404637e78eed\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:transition:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\eeb750c7b29b2466e74f99df37e21642\AndroidManifest.xml:17:1-28:12
@@ -47,20 +47,20 @@ MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Martina\.gradl
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\7324c45f1b98290ee211c7125a3642a9\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\8c966c13457747b2cb5a49a2c58fa714\AndroidManifest.xml:17:1-30:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\bbce4fcefebdd638e8587bf3d3faabdc\AndroidManifest.xml:2:1-9:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12
 	package
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:11-69
@@ -93,7 +93,7 @@ ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.x
 	android:name
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:10:19-67
 application
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:12:5-32:19
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:12:5-35:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\7189e7d837a51bd165e3957feea60911\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\7189e7d837a51bd165e3957feea60911\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\9e723f84a4643d9caeaa404637e78eed\AndroidManifest.xml:25:5-29:19
@@ -183,37 +183,37 @@ MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Us
 	android:theme
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:18:9-40
 activity#com.example.detectorapp.MainActivity
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:19:9-26:20
-	android:label
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:20:13-45
-	android:theme
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:21:13-56
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:19:9-24:20
 	android:name
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:19:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:22:13-25:29
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:20:13-23:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:23:17-69
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:21:17-69
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:23:25-66
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:24:17-77
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:22:17-77
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:24:27-74
-activity#com.example.detectorapp.DetectingActivity
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:28:9-31:58
-	android:parentActivityName
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:31:13-55
-	android:label
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:30:13-45
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:22:27-74
+activity#com.example.detectorapp.DetectCardActivity
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:26:9-27:49
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:29:13-46
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:27:13-47
+activity#com.example.detectorapp.DetectBarcodeActivity
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:29:9-30:52
+	android:name
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:30:13-50
+activity#com.example.detectorapp.CreateCardActivity
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:32:9-33:49
+	android:name
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:33:13-47
 meta-data#com.google.firebase.ml.vision.DEPENDENCIES
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:34:5-36:52
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:37:5-39:52
 	android:value
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:36:9-49
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:39:9-49
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:35:9-66
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:38:9-66
 uses-sdk
 INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
@@ -493,9 +493,9 @@ ADDED from [com.google.android.gms:play-services-basement:16.1.0] C:\Users\Marti
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:16.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.1.0.aar\9b6dfa094f326dc5aaa3bcb91c79b231\AndroidManifest.xml:24:13-58
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12 reason: org.tensorflow.lite has a targetSdkVersion < 4
+IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12 reason: org.tensorflow.lite has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-37:12 reason: org.tensorflow.lite requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-40:12 reason: org.tensorflow.lite requested WRITE_EXTERNAL_STORAGE
 meta-data#android.arch.lifecycle.VERSION
 ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\8c966c13457747b2cb5a49a2c58fa714\AndroidManifest.xml:25:9-27:47
 	android:value
