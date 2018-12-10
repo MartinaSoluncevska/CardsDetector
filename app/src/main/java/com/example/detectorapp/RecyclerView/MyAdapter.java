@@ -27,8 +27,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         // Inflate the RecyclerView item layout xml.
         final View itemView = layoutInflater.inflate(R.layout.recycler_view_item, parent, false);
         final ImageView imageView = (ImageView)itemView.findViewById(R.id.recycler_view_item_image);
-        final TextView txtTitle = (TextView) itemView.findViewById(R.id.titleTxt);
-        final TextView txtBarcode = (TextView) itemView.findViewById(R.id.barcodeTxt);
+        final TextView txtTitle = (TextView) itemView.findViewById(R.id.title);
+        final TextView txtBarcode = (TextView) itemView.findViewById(R.id.codenumber);
 
         MyViewHolder ret = new MyViewHolder(itemView);
         return ret;
@@ -41,7 +41,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
             CardItem viewItem = viewItemList.get(position);
             if(viewItem != null) {
                 // Set car image resource id.
-                holder.getImageView().setImageResource(viewItem.getImageId());
             }
         }
     }

@@ -19,8 +19,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         if(itemView != null)
         {
             imageView = (ImageView)itemView.findViewById(R.id.recycler_view_item_image);
-            title = (TextView) itemView.findViewById(R.id.titleTxt);
-            barcode = (TextView) itemView.findViewById(R.id.barcodeTxt);
+            title = (TextView) itemView.findViewById(R.id.title);
+            barcode = (TextView) itemView.findViewById(R.id.codenumber);
         }
     }
 

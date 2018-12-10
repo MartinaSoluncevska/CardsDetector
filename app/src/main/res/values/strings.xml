@@ -39,7 +39,7 @@
     <string name="toggle_turn_off">Back</string>
     <string name="desc_camera_source_activity">Vision detectors demo with live camera preview</string>
 
-    <string name="type_title">Card type</string>
-    <string name="barcode_title">Barcode number</string>
+    <string name="btn_save">Save</string>
+
 
 </resources>

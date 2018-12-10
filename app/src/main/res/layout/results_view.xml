@@ -3,25 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/activity_horizontal_margin"
-    android:layout_marginBottom="@dimen/activity_horizontal_margin"
-    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-    android:weightSum="8"
     tools:context=".CreateCardActivity">
 
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/cardtoolbar"
         android:layout_width="match_parent"
-        android:layout_height="260dp">
+        android:layout_height="200dp"
+        android:layout_marginStart="-16dp">
 
         <ImageView
             android:id="@+id/cover"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
-            android:scaleType="fitXY"
-            android:src="@drawable/verocard"/>
+            android:src="@drawable/vero"
+            android:scaleType="fitXY"/>
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
@@ -30,30 +26,33 @@
         android:layout_below="@id/cardtoolbar"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:orientation="vertical">
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+        <ImageView
+            android:id="@+id/barcodeimg"
+            android:layout_width="340dp"
+            android:layout_height="210dp"
+            android:contentDescription="@string/app_name" />
 
         <TextView
-            android:text="@string/type_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id ="@+id/titleTxt"
+            android:id="@+id/codenumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:textSize="@dimen/txtsize"
+            android:textAlignment="center"
             android:layout_weight="1"/>
 
-        <TextView
-            android:text="@string/barcode_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/barcodeTxt"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="20dp"
+            android:text="@string/btn_save"
+            android:textSize="@dimen/txtsize"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1"/>
     </LinearLayout>
 </RelativeLayout>

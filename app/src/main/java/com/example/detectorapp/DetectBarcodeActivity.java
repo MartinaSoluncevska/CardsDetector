@@ -40,6 +40,7 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
 
     private String label;
     public String cardcode;
+    public int codeformat;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -193,16 +194,18 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
 
     /**
      * The method returns the detected barcode and its number value, using a predefined method. Both values
-     * for card label and for barcode are passed to the next activity using Intent.
+     * (for card's label with prediction value and for barcode number) will be passed to the next activity using Intent.
      **/
     @Override
     public void onBarcodeDetected(final FirebaseVisionBarcode data) {
         cardcode = data.getDisplayValue();
+        codeformat = data.getFormat();
         cameraSource.stop();
 
         Intent myintent = new Intent(DetectBarcodeActivity.this, CreateCardActivity.class);
         myintent.putExtra("label", label);
         myintent.putExtra("code", cardcode);
+        myintent.putExtra("format", codeformat);
         startActivity(myintent);
     }
 }

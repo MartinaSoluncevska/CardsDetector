@@ -77,7 +77,6 @@ public class CustomImageClassifier {
 
     //Labels corresponding to the output of the vision model.
     private final List<String> labelList;
-
     public List<String> outputs;
 
     private final PriorityQueue<Map.Entry<String, Float>> sortedLabels = new PriorityQueue<>(RESULTS_TO_SHOW, new Comparator<Map.Entry<String, Float>>() {
@@ -215,13 +214,11 @@ public class CustomImageClassifier {
     }
 
     private synchronized List<String> getTopLabels(float[][] labelProbArray) {
-
         for (int i = 0; i < labelList.size(); ++i) {
             sortedLabels.add(new AbstractMap.SimpleEntry<>(labelList.get(i), labelProbArray[0][i]));
             if (sortedLabels.size() > RESULTS_TO_SHOW) {
                 sortedLabels.poll();
             }
-
         }
         return getTopKLabels();
     }
@@ -238,4 +235,5 @@ public class CustomImageClassifier {
         }
         return result;
     }
+
 }

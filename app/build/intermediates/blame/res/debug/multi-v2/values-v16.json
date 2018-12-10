@@ -4,7 +4,17 @@
             "outputFile": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\ccb70398ecb968220f6b5d1a9fd4327f\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1328043903f16bcab4fc3aa12cdf03d9\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,16 +30,6 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\7324c45f1b98290ee211c7125a3642a9\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
                     }
                 }
             ]

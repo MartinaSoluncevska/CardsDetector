@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bs\\values-bs.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\fe4ec0d2f0cb3221848c55cb2b5d5eb2\\res\\values-bs\\values.xml",
+                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\88bb1dfa30863ec6d4d6bc2115076f70\\res\\values-bs\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\9e723f84a4643d9caeaa404637e78eed\\res\\values-bs\\values-bs.xml",
+                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1328043903f16bcab4fc3aa12cdf03d9\\res\\values-bs\\values-bs.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.1.0.aar\\9b6dfa094f326dc5aaa3bcb91c79b231\\res\\values-bs\\values.xml",
+                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.1.0.aar\\3622a7d3cdee34773b9391d22ff078fe\\res\\values-bs\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
