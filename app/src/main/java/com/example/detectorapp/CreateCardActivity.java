@@ -3,21 +3,29 @@ package com.example.detectorapp;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.detectorapp.recyclerview.CardItem;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -37,19 +45,20 @@ public class CreateCardActivity extends AppCompatActivity{
     private static final String LABEL_PATH = "retrained_labels.txt";
 
     private ImageView imageView, imageCover;
-    private Button btnSave;
     private TextView txtBarcode;
-    private String cardId, title, codenumber;
+    private String cardId, title, codenumber, imglink;
     private int cardformat;
 
-    private DatabaseReference mFirebaseDatabase;
-    private FirebaseDatabase mFirebaseInstance;
+    private DatabaseReference mDatabase;
+    private FirebaseDatabase mRef;
+    private StorageReference mStorage;
 
     private Bitmap bitmap;
     private BitMatrix bitMatrix;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.results_view);
         Toolbar thistoolbar = (Toolbar) findViewById(R.id.cardtoolbar);
         setSupportActionBar(thistoolbar);
@@ -59,37 +68,7 @@ public class CreateCardActivity extends AppCompatActivity{
         codenumber = myintent.getStringExtra("code");
         cardformat = myintent.getIntExtra("format", 0);
 
-        imageCover = findViewById(R.id.cover);
-        imageView = findViewById(R.id.barcodeimg);
-        txtBarcode = findViewById(R.id.codenumber);
-        txtBarcode.setText(codenumber);
-        btnSave = (Button) findViewById(R.id.btnSave);
-
-        //Generate image dynamically, based on the card label that the card we are detecting with the camera has.
-        //createCover(cardId);
-        //Generate barcode image based on the barcode format value that the card we are detecting with the camera has.
-        createBarcode(cardformat);
-        imageView.setImageBitmap(bitmap);
-
-        mFirebaseInstance = FirebaseDatabase.getInstance();
-        mFirebaseInstance.setPersistenceEnabled(true);
-        // get reference to 'cards' node
-        mFirebaseDatabase = mFirebaseInstance.getReference("cards");
-        // store app title to 'app_title' node
-        mFirebaseInstance.getReference("app_title").setValue("Realtime Database");
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createCard(title, codenumber);
-            }
-        });
-    }
-
-    /**
-     * Creating new card item node under 'cards'
-     */
-    private void createCard(String title, String code){
+        //extracting the type of card only, since the title variable contains both type and prediction value
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open(LABEL_PATH)))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -101,14 +80,51 @@ public class CreateCardActivity extends AppCompatActivity{
             Log.e(TAG, "Failed to read label list.", e);
         }
 
-        CardItem cardItem = new CardItem(title, code);
-        mFirebaseDatabase.child(cardId).setValue(cardItem);
+        imageCover = findViewById(R.id.cover);
+        imageView = findViewById(R.id.barcodeimg);
+        txtBarcode = findViewById(R.id.codenumber);
+        txtBarcode.setText(codenumber);
+
+        mStorage = FirebaseStorage.getInstance().getReference();
+
+        mRef = FirebaseDatabase.getInstance();
+        mRef.getReference("app_title").setValue("Realtime Database");
+        mDatabase = mRef.getReference("cards");
+
+        //Generate image dynamically, based on the cardId that the card we are detecting has.
+        createCover(cardId);
+        //Generate barcode image based on the barcode format value that the card we are detecting has.
+        createBarcode(cardformat, codenumber, imageView);
+    }
+
+    //Store new card object node in the database, using the button in the appbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //Handle click on button
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.mybutton) {
+            createCard(cardId, codenumber, imglink, cardformat);
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //Create new card object
+    private void createCard(String title, String code, String link, int format){
+        CardItem cardItem = new CardItem(title, code, link, format);
+        mDatabase.child(cardId).setValue(cardItem);
 
         Toast.makeText(this, "Card with id: " + cardId + " has been added", Toast.LENGTH_SHORT).show();
     }
 
     //Optimize generating barcode image for different barcode formats
-    private void createBarcode (int format){
+    private void createBarcode (int format, String codenumber, ImageView imageview){
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
             switch (format){
@@ -139,54 +155,34 @@ public class CreateCardActivity extends AppCompatActivity{
         } catch (WriterException e) {
             e.printStackTrace();
         }
-
         BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
         bitmap = barcodeEncoder.createBitmap(bitMatrix);
+        imageview.setImageBitmap(bitmap);
     }
 
-    /*private void createCover(String id){
-        switch(id){
-            case "vero":
-                imageCover.setImageResource(R.drawable.vero);
-                break;
-            case "eurofarm":
-                imageCover.setImageResource(R.drawable.eurofarm);
-                break;
-            case "sikkomerc":
-                imageCover.setImageResource(R.drawable.sikkomerc);
-                break;
-            case "zegin":
-                imageCover.setImageResource(R.drawable.zegin);
-                break;
-            case "tinex":
-                imageCover.setImageResource(R.drawable.tinex);
-                break;
-            case "lyoness":
-                imageCover.setImageResource(R.drawable.lyoness);
-            default:
-                Log.i(TAG, "Unknown label");
-        }
-    }*/
+    //Display image in the top of the layout
+    private void createCover(String id){
+        /* Complete the url based on cardId
+        (images previously stored in the storage should have only .png extension) */
+        String url = "card_photos/" + id + ".png";
 
-    /* Card data change listener
-    private void addCardChangeListener(){
-        mFirebaseDatabase.child(cardId).addValueEventListener(new ValueEventListener() {
+        //Create preview, using the downloadUrl link from Firebase Storage
+        mStorage.child(url).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                CardItem cardItem = dataSnapshot.getValue(CardItem.class);
-                if(cardItem == null){
-                    Log.e(TAG, "Card data is null");
-                    return;
-                }
+            public void onSuccess(Uri uri) {
+                Glide.with(getApplicationContext())
+                        .load(uri)
+                        .into(imageCover);
 
-                //Display newly updated title and barcode
-                //txtuser.setText(cardItem.title + "," + cardItem.codenumber);
+                //Store the url in a variable, later passed to the createCard()
+                imglink = uri.toString();
             }
-
+        }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e(TAG, "Failed to read user", error.toException());
+            public void onFailure(@NonNull Exception e) {
+
             }
         });
-    }**/
+    }
+
 }

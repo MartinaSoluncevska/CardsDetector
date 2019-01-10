@@ -40,8 +40,6 @@ public class DetectCardActivity extends AppCompatActivity implements CompoundBut
     private CameraSourcePreview preview;
     private GraphicOverlay graphicOverlay;
 
-    private String type;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +53,7 @@ public class DetectCardActivity extends AppCompatActivity implements CompoundBut
 
         CustomImageClassifierProcessor.cardDetectorListener = this;
 
-        if (allPermissionsGranted()) {
+        if(allPermissionsGranted()){
             createCameraSource();
             startCameraSource();
         } else {
@@ -202,12 +200,18 @@ public class DetectCardActivity extends AppCompatActivity implements CompoundBut
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                type = labels.get(labels.size() - 1);
-                cameraSource.stop();
-
                 Intent thisintent = new Intent(DetectCardActivity.this, DetectBarcodeActivity.class);
-                thisintent.putExtra("type", type);
+                thisintent.putExtra("type", labels.get(labels.size() - 1));
+                thisintent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                thisintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(thisintent);
+                overridePendingTransition(0, 0);
+
+                preview.stop();
+                cameraSource.stop();
+                cameraSource.release();
+                cameraSource = null;
+                finish();
             }
         }, 5000);
     }

@@ -17,6 +17,13 @@
         app:popupTheme="@style/AppTheme.PopupOverlay">
     </android.support.v7.widget.Toolbar>
 
+    <TextView
+        android:id="@+id/txtcoord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appname">
+    </TextView>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -25,7 +32,7 @@
         android:layout_marginBottom="@dimen/activity_horizontal_margin"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_below="@id/appname"
+        android:layout_below="@id/txtcoord"
         android:clipToPadding="false"
         android:scrollbars="vertical" />
 

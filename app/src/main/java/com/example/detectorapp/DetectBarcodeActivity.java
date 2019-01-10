@@ -39,8 +39,6 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
     private GraphicOverlay graphicOverlay;
 
     private String label;
-    public String cardcode;
-    public int codeformat;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,12 +57,13 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
         Intent thisintent = getIntent();
         label = thisintent.getStringExtra("type");
 
-        if (allPermissionsGranted()) {
+        if (allPermissionsGranted()){
             createCameraSource();
             startCameraSource();
         } else {
             getRuntimePermissions();
         }
+
     }
 
     @Override
@@ -175,7 +174,7 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
     public void onRequestPermissionsResult(
             int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         Log.i(TAG, "Permission granted!");
-        if (allPermissionsGranted()) {
+        if(allPermissionsGranted()){
             createCameraSource();
             startCameraSource();
         }
@@ -198,14 +197,13 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
      **/
     @Override
     public void onBarcodeDetected(final FirebaseVisionBarcode data) {
-        cardcode = data.getDisplayValue();
-        codeformat = data.getFormat();
         cameraSource.stop();
 
         Intent myintent = new Intent(DetectBarcodeActivity.this, CreateCardActivity.class);
         myintent.putExtra("label", label);
-        myintent.putExtra("code", cardcode);
-        myintent.putExtra("format", codeformat);
+        myintent.putExtra("code", data.getDisplayValue());
+        myintent.putExtra("format", data.getFormat());
         startActivity(myintent);
+        finish();
     }
 }

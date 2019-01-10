@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Martina\\Downloads\\DetectorApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\ccb70398ecb968220f6b5d1a9fd4327f\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\311ff81ddf99f5b81ba0af3e56429132\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1328043903f16bcab4fc3aa12cdf03d9\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Martina\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\49c2003a1878c23efb572593f2922205\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
