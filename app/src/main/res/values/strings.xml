@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">DetectorApp</string>
+    <string name="app_name">Cards</string>
     <string name="picture">Picture</string>
+    <string name="scan1">SCAN CARD</string>
+    <string name="scan2">SCAN BARCODE</string>
+
     <string name="help_text">
       <b>HDR Viewfinder Demo:</b>\n\n
 

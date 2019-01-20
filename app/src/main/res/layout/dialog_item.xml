@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
+    android:layout_width="360dp"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/activity_horizontal_margin"
+    android:layout_marginStart="@dimen/activity_top_margin"
+    android:layout_marginEnd="@dimen/activity_top_margin"
     android:layout_marginBottom="@dimen/activity_horizontal_margin"
-    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_horizontal_margin"
     android:layout_gravity="center">
 
     <ImageView
         android:id="@+id/cardimg"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
         android:contentDescription="@string/app_name"
         android:scaleType="fitXY"/>
 
     <ImageView
         android:id="@+id/cardcode"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:padding="10dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="@dimen/activity_top_margin"
         android:contentDescription="@string/app_name"
         android:layout_below="@id/cardimg"/>
 

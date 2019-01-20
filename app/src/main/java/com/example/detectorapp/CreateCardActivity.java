@@ -58,17 +58,20 @@ public class CreateCardActivity extends AppCompatActivity{
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.results_view);
+
         Toolbar thistoolbar = (Toolbar) findViewById(R.id.cardtoolbar);
         setSupportActionBar(thistoolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
 
         Intent myintent = getIntent();
         title = myintent.getStringExtra("label");
         codenumber = myintent.getStringExtra("code");
         cardformat = myintent.getIntExtra("format", 0);
 
-        //extracting the type of card only, since the title variable contains both type and prediction value
+       //extracting the type of card only, since the title variable contains both type and prediction value
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open(LABEL_PATH)))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -97,6 +100,12 @@ public class CreateCardActivity extends AppCompatActivity{
         createBarcode(cardformat, codenumber, imageView);
     }
 
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return false;
+    }
+
     //Store new card object node in the database, using the button in the appbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -108,7 +117,7 @@ public class CreateCardActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.mybutton) {
+        if (id == R.id.savebutton) {
             createCard(cardId, codenumber, imglink, cardformat);
             finish();
         }
@@ -119,8 +128,6 @@ public class CreateCardActivity extends AppCompatActivity{
     private void createCard(String title, String code, String link, int format){
         CardItem cardItem = new CardItem(title, code, link, format);
         mDatabase.child(cardId).setValue(cardItem);
-
-        Toast.makeText(this, "Card with id: " + cardId + " has been added", Toast.LENGTH_SHORT).show();
     }
 
     //Optimize generating barcode image for different barcode formats

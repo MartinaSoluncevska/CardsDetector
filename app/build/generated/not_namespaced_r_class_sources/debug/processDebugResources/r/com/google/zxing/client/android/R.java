@@ -59,8 +59,8 @@ public final class R {
     public static final class layout {
         private layout() {}
 
-        public static final int zxing_barcode_scanner = 0x7f0a0041;
-        public static final int zxing_capture = 0x7f0a0042;
+        public static final int zxing_barcode_scanner = 0x7f0a0042;
+        public static final int zxing_capture = 0x7f0a0043;
     }
     public static final class raw {
         private raw() {}
@@ -70,10 +70,10 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int zxing_app_name = 0x7f0e0054;
-        public static final int zxing_button_ok = 0x7f0e0055;
-        public static final int zxing_msg_camera_framework_bug = 0x7f0e0056;
-        public static final int zxing_msg_default_status = 0x7f0e0057;
+        public static final int zxing_app_name = 0x7f0e0056;
+        public static final int zxing_button_ok = 0x7f0e0057;
+        public static final int zxing_msg_camera_framework_bug = 0x7f0e0058;
+        public static final int zxing_msg_default_status = 0x7f0e0059;
     }
     public static final class style {
         private style() {}

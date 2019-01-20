@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_item_id"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginTop="0dp"
+    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardCornerRadius="7dp">
 
     <RelativeLayout
         android:id="@+id/recycler_view_item"
@@ -14,19 +20,18 @@
         <ImageView
             android:id="@+id/imageview"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:contentDescription="@string/app_name"
-            android:scaleType="fitXY" />
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"/>
 
         <TextView
             android:id="@+id/txtlabel"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageview"/>
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/txtnumber"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"/>
 

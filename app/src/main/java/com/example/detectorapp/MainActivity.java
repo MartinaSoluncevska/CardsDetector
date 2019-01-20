@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.detectorapp.recyclerview.CardItem;
@@ -72,7 +73,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity{
     private static final String TAG = "Main Activity";
     ImageView mImage, cardimg, cardcode;
-    TextView mTitle, mNumber, mFormat, cardnumber, mCoordinates;
+    TextView mTitle, mNumber, mFormat, cardnumber;
     List<CardItem> itemList;
     List<LocationItem> locations;
     List<Float> distances;
@@ -104,7 +105,6 @@ public class MainActivity extends AppCompatActivity{
         mNumber = (TextView) findViewById(R.id.txtnumber);
         mFormat = (TextView) findViewById(R.id.txtformat);
         mImage = (ImageView) findViewById(R.id.imageview);
-        mCoordinates = (TextView) findViewById(R.id.txtcoord);
 
         itemList = new ArrayList<CardItem>();
         locations = new ArrayList<LocationItem>();
@@ -225,7 +225,8 @@ public class MainActivity extends AppCompatActivity{
 
             //find the element with minimal distance in the array
             int minIndex = distances.indexOf(Collections.min(distances));
-            int fromPosition = 0;
+            int fromPosition;
+            int toPosition = 0;
             for(int k=0; k < itemList.size(); k++){
                 //if the position of the item is 0, do nothing
                 //if it's not 0, find the item in the list and move it to position 0
@@ -233,11 +234,12 @@ public class MainActivity extends AppCompatActivity{
                     fromPosition = k;
                     CardItem wantedItem = itemList.get(fromPosition);
                     itemList.remove(fromPosition);
-                    itemList.add(0, wantedItem);
-                    mAdapter.notifyItemMoved(fromPosition, 0);
+                    itemList.add(toPosition, wantedItem);
+                    mAdapter.notifyItemMoved(fromPosition, toPosition);
                 }
             }
             stopLocationUpdates();
+            Toast.makeText(MainActivity.this, "Nearest location: " + locations.get(minIndex).getItemTitle(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -367,22 +369,22 @@ public class MainActivity extends AppCompatActivity{
         try {
             switch (format){
                 case FirebaseVisionBarcode.FORMAT_EAN_13:
-                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.EAN_13, 300, 200);
+                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.EAN_13, 400, 200);
                     break;
                 case FirebaseVisionBarcode.FORMAT_EAN_8:
-                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.EAN_8, 300, 200);
+                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.EAN_8, 400, 200);
                     break;
                 case FirebaseVisionBarcode.FORMAT_CODABAR:
-                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.CODABAR, 300, 200);
+                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.CODABAR, 400, 200);
                     break;
                 case FirebaseVisionBarcode.FORMAT_CODE_39:
-                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.CODE_39, 300, 200);
+                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.CODE_39, 400, 200);
                     break;
                 case FirebaseVisionBarcode.FORMAT_CODE_93:
-                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.CODE_93, 300, 200);
+                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.CODE_93, 400, 200);
                     break;
                 case FirebaseVisionBarcode.FORMAT_CODE_128:
-                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.CODE_128, 300, 200);
+                    bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.CODE_128, 400, 200);
                     break;
                 case FirebaseVisionBarcode.FORMAT_QR_CODE:
                     bitMatrix = multiFormatWriter.encode(codenumber, BarcodeFormat.QR_CODE, 200, 200);

@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:keepScreenOn="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_dark"
+        android:padding="32dp"
+        android:text="@string/scan2"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="28sp" />
+
+    <com.example.detectorapp.CameraClasses.CameraSourcePreview
+        android:id="@+id/codePreview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/text2">
+
+        <com.example.detectorapp.CameraClasses.GraphicOverlay
+            android:id="@+id/fireCodeOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true" />
+    </com.example.detectorapp.CameraClasses.CameraSourcePreview>
+
+</RelativeLayout>

@@ -10,8 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.CompoundButton;
-import android.widget.ToggleButton;
+import android.widget.TextView;
 
 import com.example.detectorapp.CameraClasses.CameraSource;
 import com.example.detectorapp.CameraClasses.CameraSourcePreview;
@@ -29,27 +28,26 @@ import java.util.List;
  * the displayData() method.
  **/
 
-public class DetectBarcodeActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener,
-        BarcodeScanningProcessor.BarcodeDetectorListener{
+public class DetectBarcodeActivity extends AppCompatActivity implements BarcodeScanningProcessor.BarcodeDetectorListener{
     private static final int PERMISSION_REQUESTS = 1;
     private static final String TAG = "Detecting Activity";
 
-    private CameraSource cameraSource = null;
-    private CameraSourcePreview preview;
-    private GraphicOverlay graphicOverlay;
+    private CameraSource anotherCameraSource = null;
+    private CameraSourcePreview anotherPreview;
+    private GraphicOverlay anotherGraphicOverlay;
 
     private String label;
+    TextView screenTitle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detection);
 
-        preview = findViewById(R.id.firePreview);
-        graphicOverlay = findViewById(R.id.fireFaceOverlay);
+        anotherPreview = findViewById(R.id.codePreview);
+        anotherGraphicOverlay = findViewById(R.id.fireCodeOverlay);
 
-        ToggleButton facingSwitch = findViewById(R.id.facingswitch);
-        facingSwitch.setOnCheckedChangeListener(this);
+        screenTitle = (TextView) findViewById(R.id.text2);
 
         BarcodeScanningProcessor.barcodeDetectorListener = this;
 
@@ -58,33 +56,19 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
         label = thisintent.getStringExtra("type");
 
         if (allPermissionsGranted()){
-            createCameraSource();
-            startCameraSource();
+            createAnotherCameraSource();
+            startAnotherCameraSource();
         } else {
             getRuntimePermissions();
         }
-
     }
 
-    @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-        if (cameraSource != null) {
-            if (isChecked) {
-                cameraSource.setFacing(CameraSource.CAMERA_FACING_FRONT);
-            } else {
-                cameraSource.setFacing(CameraSource.CAMERA_FACING_BACK);
-            }
-        }
-        preview.stop();
-        startCameraSource();
-    }
-
-    private void createCameraSource() {
+    private void createAnotherCameraSource() {
         // If there's no existing cameraSource, create one.
-        if (cameraSource == null) {
-            cameraSource = new CameraSource(this, graphicOverlay);
+        if (anotherCameraSource == null) {
+            anotherCameraSource = new CameraSource(this, anotherGraphicOverlay);
         }
-        cameraSource.setMachineLearningFrameProcessor(new BarcodeScanningProcessor());
+        anotherCameraSource.setMachineLearningFrameProcessor(new BarcodeScanningProcessor());
     }
 
     /**
@@ -92,29 +76,16 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
      * (e.g., because onResume was called before the camera source was created), this will be called
      * again when the camera source is created.
      **/
-    private void startCameraSource() {
-        if (cameraSource != null) {
+    private void startAnotherCameraSource() {
+        if (anotherCameraSource != null) {
             try {
-                if (preview == null) {
-                    Log.d(TAG, "resume: Preview is null");
-                }
-                if (graphicOverlay == null) {
-                    Log.d(TAG, "resume: graphOverlay is null");
-                }
-                preview.start(cameraSource, graphicOverlay);
+                anotherPreview.start(anotherCameraSource, anotherGraphicOverlay);
             } catch (IOException e) {
                 Log.e(TAG, "Unable to start camera source.", e);
-                cameraSource.release();
-                cameraSource = null;
+                anotherCameraSource.release();
+                anotherCameraSource = null;
             }
         }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume");
-        startCameraSource();
     }
 
     /**
@@ -123,14 +94,14 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
     @Override
     protected void onPause() {
         super.onPause();
-        preview.stop();
+        anotherPreview.stop();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (cameraSource != null) {
-            cameraSource.release();
+        if (anotherCameraSource != null) {
+            anotherCameraSource.release();
         }
     }
 
@@ -174,10 +145,7 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
     public void onRequestPermissionsResult(
             int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         Log.i(TAG, "Permission granted!");
-        if(allPermissionsGranted()){
-            createCameraSource();
-            startCameraSource();
-        }
+        createAnotherCameraSource();
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
@@ -197,7 +165,7 @@ public class DetectBarcodeActivity extends AppCompatActivity implements Compound
      **/
     @Override
     public void onBarcodeDetected(final FirebaseVisionBarcode data) {
-        cameraSource.stop();
+        anotherCameraSource.stop();
 
         Intent myintent = new Intent(DetectBarcodeActivity.this, CreateCardActivity.class);
         myintent.putExtra("label", label);

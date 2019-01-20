@@ -4,15 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.CompoundButton;
-import android.widget.ToggleButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.detectorapp.CameraClasses.CameraSource;
 import com.example.detectorapp.CameraClasses.CameraSourcePreview;
@@ -31,52 +31,44 @@ import java.util.TimerTask;
   * Loads on click on fab button in Main Activity. Implements an interface declared in its Processor, whose method returns the label with
   * highest prediction value in the labels list.
  **/
-public class DetectCardActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener,
-        CustomImageClassifierProcessor.CardDetectorListener{
-    private static final int PERMISSION_REQUESTS = 1;
+public class DetectCardActivity extends AppCompatActivity implements CustomImageClassifierProcessor.CardDetectorListener{
     private static final String TAG = "Detecting Activity";
+    private static final int PERMISSION_REQUESTS = 1;
 
     private CameraSource cameraSource = null;
     private CameraSourcePreview preview;
     private GraphicOverlay graphicOverlay;
 
+    TextView title;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detection);
+        setContentView(R.layout.activity_img_detection);
 
         preview = findViewById(R.id.firePreview);
         graphicOverlay = findViewById(R.id.fireFaceOverlay);
 
-        ToggleButton facingSwitch = findViewById(R.id.facingswitch);
-        facingSwitch.setOnCheckedChangeListener(this);
+        title = (TextView) findViewById(R.id.text);
 
         CustomImageClassifierProcessor.cardDetectorListener = this;
 
         if(allPermissionsGranted()){
             createCameraSource();
-            startCameraSource();
         } else {
             getRuntimePermissions();
         }
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-        if (cameraSource != null) {
-            if (isChecked) {
-                cameraSource.setFacing(CameraSource.CAMERA_FACING_FRONT);
-            } else {
-                cameraSource.setFacing(CameraSource.CAMERA_FACING_BACK);
-            }
-        }
-        preview.stop();
+    protected void onStart() {
+        super.onStart();
         startCameraSource();
+        Toast.makeText(DetectCardActivity.this, "Number:" + Camera.getNumberOfCameras(), Toast.LENGTH_SHORT).show();
     }
 
     private void createCameraSource() {
-        // If there's no existing cameraSource, create one.
-        if (cameraSource == null) {
+        if(cameraSource == null) {
             cameraSource = new CameraSource(this, graphicOverlay);
         }
 
@@ -174,9 +166,8 @@ public class DetectCardActivity extends AppCompatActivity implements CompoundBut
     public void onRequestPermissionsResult(
             int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         Log.i(TAG, "Permission granted!");
-        if (allPermissionsGranted()) {
+        if(allPermissionsGranted()){
             createCameraSource();
-            startCameraSource();
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
@@ -197,7 +188,8 @@ public class DetectCardActivity extends AppCompatActivity implements CompoundBut
      **/
     @Override
     public void onTypeDetected(final List<String> labels) {
-        new Timer().schedule(new TimerTask() {
+        final Timer timer = new Timer("Timer");
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 Intent thisintent = new Intent(DetectCardActivity.this, DetectBarcodeActivity.class);
@@ -206,14 +198,8 @@ public class DetectCardActivity extends AppCompatActivity implements CompoundBut
                 thisintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(thisintent);
                 overridePendingTransition(0, 0);
-
-                preview.stop();
-                cameraSource.stop();
-                cameraSource.release();
-                cameraSource = null;
                 finish();
             }
         }, 5000);
     }
-
 }
