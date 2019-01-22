@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.os.Looper;
 import android.provider.Settings;
+import android.provider.Settings.Secure;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -88,7 +89,9 @@ public class MainActivity extends AppCompatActivity{
     private LocationCallback locationCallback;
     private Location location;
     private Boolean requestingUpdates;
+
     private static final int REQUEST_CHECK_SETTINGS = 100;
+    private String uID;
 
     private DatabaseReference databaseReference;
     private DatabaseReference coordsReference;
@@ -109,6 +112,8 @@ public class MainActivity extends AppCompatActivity{
         itemList = new ArrayList<CardItem>();
         locations = new ArrayList<LocationItem>();
         distances = new ArrayList<>();
+        uID = Secure.getString(getContentResolver(), Secure.ANDROID_ID);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.appname);
         setSupportActionBar(toolbar);
@@ -143,7 +148,7 @@ public class MainActivity extends AppCompatActivity{
         mAdapter = new MyAdapter(MainActivity.this, itemList);
 
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("cards");
+        databaseReference = database.getReference("cards").child(uID);
         coordsReference = database.getReference("coordinates");
 
         //Populate recycler view from database, then retrieve latitude and longitude

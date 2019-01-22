@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Jan 20 06:00:41 CET 2019
+#Mon Jan 21 20:41:22 CET 2019
 4.path=mobilenet_quant_v2_1.0_299.tflite
 8.set=NATIVE_RESOURCE
 6.path=classes.dex

@@ -22,9 +22,13 @@ import com.google.firebase.ml.common.FirebaseMLException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
   * This activity does classification based on custom tensorflow-lite model, to predict which type of card is being detected.
@@ -64,7 +68,6 @@ public class DetectCardActivity extends AppCompatActivity implements CustomImage
     protected void onStart() {
         super.onStart();
         startCameraSource();
-        Toast.makeText(DetectCardActivity.this, "Number:" + Camera.getNumberOfCameras(), Toast.LENGTH_SHORT).show();
     }
 
     private void createCameraSource() {
@@ -201,5 +204,17 @@ public class DetectCardActivity extends AppCompatActivity implements CustomImage
                 finish();
             }
         }, 5000);
+
+        /*final List<Float> values = new ArrayList<>();
+        Pattern pattern = Pattern.compile("([0-9]+[.][0-9]+)");
+        for(int i = 0; i < results.size(); i++){
+            List<String> sample = results.get(i);
+            Matcher matcher = pattern.matcher(sample.get(sample.size()-1));
+            while(matcher.find()){
+                String s = matcher.group();
+                float number = Float.parseFloat(s);
+                values.add(number);
+            }
+        }*/
     }
 }

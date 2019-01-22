@@ -5,14 +5,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings.Secure;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +34,7 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.UUID;
 
 /**
  * In this activity, values for card label and barcode are being extracted and displayed on the screen. Also based on the card label,
@@ -47,6 +47,7 @@ public class CreateCardActivity extends AppCompatActivity{
     private ImageView imageView, imageCover;
     private TextView txtBarcode;
     private String cardId, title, codenumber, imglink;
+    private String uniqueID;
     private int cardformat;
 
     private DatabaseReference mDatabase;
@@ -70,6 +71,7 @@ public class CreateCardActivity extends AppCompatActivity{
         title = myintent.getStringExtra("label");
         codenumber = myintent.getStringExtra("code");
         cardformat = myintent.getIntExtra("format", 0);
+        uniqueID = Secure.getString(getContentResolver(), Secure.ANDROID_ID);
 
        //extracting the type of card only, since the title variable contains both type and prediction value
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open(LABEL_PATH)))) {
@@ -89,7 +91,6 @@ public class CreateCardActivity extends AppCompatActivity{
         txtBarcode.setText(codenumber);
 
         mStorage = FirebaseStorage.getInstance().getReference();
-
         mRef = FirebaseDatabase.getInstance();
         mRef.getReference("app_title").setValue("Realtime Database");
         mDatabase = mRef.getReference("cards");
@@ -127,7 +128,7 @@ public class CreateCardActivity extends AppCompatActivity{
     //Create new card object
     private void createCard(String title, String code, String link, int format){
         CardItem cardItem = new CardItem(title, code, link, format);
-        mDatabase.child(cardId).setValue(cardItem);
+        mDatabase.child(uniqueID).child(cardId).setValue(cardItem);
     }
 
     //Optimize generating barcode image for different barcode formats
