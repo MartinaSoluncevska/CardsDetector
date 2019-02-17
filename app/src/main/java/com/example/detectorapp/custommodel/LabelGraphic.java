@@ -12,11 +12,6 @@ import java.util.List;
 public class LabelGraphic extends Graphic {
     private final Paint textPaint;
     private final GraphicOverlay overlay;
-
-    public List<String> getLabels() {
-        return labels;
-    }
-
     private List<String> labels;
 
     LabelGraphic(GraphicOverlay overlay, List<String> labels) {

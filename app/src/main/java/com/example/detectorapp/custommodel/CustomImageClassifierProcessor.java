@@ -12,8 +12,10 @@ import com.example.detectorapp.CameraClasses.CameraImageGraphic;
 import com.example.detectorapp.CameraClasses.FrameMetadata;
 import com.example.detectorapp.CameraClasses.GraphicOverlay;
 import com.example.detectorapp.CameraClasses.VisionImageProcessor;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.ml.common.FirebaseMLException;
 
 import java.nio.ByteBuffer;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomImageClassifierProcessor implements VisionImageProcessor {
-    private static final String TAG = "Custom";
+    private static final String TAG = "CustomProcessor";
     private final CustomImageClassifier classifier;
     private final Activity activity;
     public static CardDetectorListener cardDetectorListener;
@@ -30,10 +32,16 @@ public class CustomImageClassifierProcessor implements VisionImageProcessor {
     long b = System.currentTimeMillis();
 
     private List<String> list = new ArrayList<>();
+    private ArrayList<List<String>> array = new ArrayList<>();
+    int counter = 0;
 
     public CustomImageClassifierProcessor(Activity activity) throws FirebaseMLException{
         this.activity = activity;
         classifier = new CustomImageClassifier(activity);
+    }
+
+    public interface CardDetectorListener {
+        void onTypeDetected (List<String> elements);
     }
 
     @Override
@@ -42,29 +50,25 @@ public class CustomImageClassifierProcessor implements VisionImageProcessor {
                 .addOnSuccessListener(
                         activity,
                         new OnSuccessListener<List<String>>() {
-                            @Override
-                            public void onSuccess(final List<String> result) {
-                                LabelGraphic labelGraphic = new LabelGraphic(graphicOverlay, result);
-                                Bitmap bitmap = BitmapUtils.getBitmap(data, frameMetadata);
-                                CameraImageGraphic imageGraphic = new CameraImageGraphic(graphicOverlay, bitmap);
-                                graphicOverlay.clear();
-                                graphicOverlay.add(imageGraphic);
-                                graphicOverlay.add(labelGraphic);
-                                graphicOverlay.postInvalidate();
+                                @Override
+                                public void onSuccess(List<String> result) {
+                                    LabelGraphic labelGraphic = new LabelGraphic(graphicOverlay, result);
+                                    Bitmap bitmap = BitmapUtils.getBitmap(data, frameMetadata);
+                                    CameraImageGraphic imageGraphic = new CameraImageGraphic(graphicOverlay, bitmap);
+                                    graphicOverlay.clear();
+                                    graphicOverlay.add(imageGraphic);
+                                    graphicOverlay.add(labelGraphic);
+                                    graphicOverlay.postInvalidate();
 
-                                while (true){
-                                    list.addAll(result);
-                                    for (int i = 0; i < list.size(); i++) {
-                                        if (cardDetectorListener == null) return;
-                                        cardDetectorListener.onTypeDetected(list);
-                                        cardDetectorListener = null;
-
-                                        if(b-a >=5000) break;
-                                    }
-                                }
-
-                            }
-                        })
+                                    while (true){
+                                        list.addAll(result);
+                                        for (int i = 0; i < list.size(); i++) {
+                                            if (cardDetectorListener == null) return;
+                                            cardDetectorListener.onTypeDetected(list);
+                                            cardDetectorListener = null;
+                                            if(b-a >=5000) break;
+                                        }}}
+                            })
                 .addOnFailureListener(
                         new OnFailureListener() {
                             @Override
@@ -84,7 +88,4 @@ public class CustomImageClassifierProcessor implements VisionImageProcessor {
     public void stop() {
     }
 
-    public interface CardDetectorListener {
-        void onTypeDetected (List<String> labels);
-    }
 }

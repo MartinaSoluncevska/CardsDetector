@@ -8,6 +8,7 @@ import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresPermission;
 import android.util.Log;
@@ -17,6 +18,9 @@ import android.view.WindowManager;
 
 import com.google.android.gms.common.images.Size;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -95,12 +99,7 @@ public class CameraSource {
 
     /**
      * Map to convert between a byte array, received from the camera, and its associated byte buffer.
-     * We use byte buffers internally because this is a more efficient way to call into native code
-     * later (avoids a potential copy).
-     *
-     * <p><b>Note:</b> uses IdentityHashMap here instead of HashMap because the behavior of an array's
-     * equals, hashCode and toString methods is both useless and unexpected. IdentityHashMap enforces
-     * identity ('==') check on the keys.
+     * We use byte buffers internally because this is a more efficient way to call into native code.
      */
     private final Map<byte[], ByteBuffer> bytesToByteBuffer = new IdentityHashMap<>();
 
@@ -129,8 +128,6 @@ public class CameraSource {
     /**
      * Opens the camera and starts sending preview frames to the underlying detector. The preview
      * frames are not displayed.
-     *
-     * @throws IOException if the camera's preview texture or display could not be initialized
      */
     @SuppressLint("MissingPermission")
     @RequiresPermission(Manifest.permission.CAMERA)
@@ -154,9 +151,6 @@ public class CameraSource {
     /**
      * Opens the camera and starts sending preview frames to the underlying detector. The supplied
      * surface holder is used for the preview so frames can be displayed to the user.
-     *
-     * @param surfaceHolder the surface holder to use for the preview frames
-     * @throws IOException if the supplied surface holder could not be used as the preview display
      */
     @SuppressLint("MissingPermission")
     @RequiresPermission(Manifest.permission.CAMERA)
@@ -247,8 +241,6 @@ public class CameraSource {
 
     /**
      * Opens the camera and applies the user settings.
-     *
-     * @throws IOException if camera cannot be found or preview cannot be processed
      */
     @SuppressLint("InlinedApi")
     private Camera createCamera() throws IOException {
@@ -547,6 +539,7 @@ public class CameraSource {
         bytesToByteBuffer.put(byteArray, buffer);
         return byteArray;
     }
+
     /**
      * Called when the camera has a new preview frame.
      */
@@ -557,6 +550,7 @@ public class CameraSource {
         }
     }
 
+    // Set processor of the underlying detector that the camera will be using when running
     public void setMachineLearningFrameProcessor(VisionImageProcessor processor) {
         synchronized (processorLock) {
             cleanScreen();
@@ -712,5 +706,84 @@ public class CameraSource {
      */
     private void cleanScreen() {
         graphicOverlay.clear();
+    }
+
+    /**
+     * Callback interface used to signal the moment of actual image capture.
+     */
+    public interface ShutterCallback {
+        /**
+         * Called as near as possible to the moment when a photo is captured from the sensor. This
+         * is a good opportunity to play a shutter sound or give other feedback of camera operation.
+         * This may be some time after the photo was triggered, but some time before the actual data
+         * is available.
+         */
+        void onShutter();
+    }
+
+    /**
+     * Callback interface used to supply image data from a photo capture.
+     */
+    public interface PictureCallback {
+        /**
+         * Called when image data is available after a picture is taken.  The format of the data
+         * is a jpeg binary.
+         */
+        void onPictureTaken(byte[] data);
+    }
+
+    /**
+     * Initiates taking a picture, which happens asynchronously.  The camera source should have been
+     * activated previously with {@link #start()} or {@link #start(SurfaceHolder)}.  The camera
+     * preview is suspended while the picture is being taken, but will resume once picture taking is
+     * done.
+     *
+     * @param shutter the callback for image capture moment, or null
+     * @param jpeg    the callback for JPEG image data, or null
+     */
+    public void takePicture(ShutterCallback shutter, PictureCallback jpeg) {
+        synchronized (processorLock) {
+            if (camera != null) {
+                PictureStartCallback startCallback = new PictureStartCallback();
+                startCallback.mDelegate = shutter;
+                PictureDoneCallback doneCallback = new PictureDoneCallback();
+                doneCallback.mDelegate = jpeg;
+                camera.takePicture(startCallback, null, null, doneCallback);
+            }
+        }
+    }
+
+    /**
+     * Wraps the camera1 shutter callback so that the deprecated API isn't exposed.
+     */
+    private class PictureStartCallback implements Camera.ShutterCallback {
+        private ShutterCallback mDelegate;
+
+        @Override
+        public void onShutter() {
+            if (mDelegate != null) {
+                mDelegate.onShutter();
+            }
+        }
+    }
+
+    /**
+     * Wraps the final callback in the camera sequence, so that we can automatically turn the camera
+     * preview back on after the picture has been taken.
+     */
+    private class PictureDoneCallback implements Camera.PictureCallback {
+        private PictureCallback mDelegate;
+
+        @Override
+        public void onPictureTaken(byte[] data, Camera camera) {
+            if (mDelegate != null) {
+                mDelegate.onPictureTaken(data);
+            }
+            synchronized (processorLock) {
+                if (CameraSource.this.camera != null) {
+                    CameraSource.this.camera.startPreview();
+                }
+            }
+        }
     }
 }

@@ -91,20 +91,22 @@ public class CustomImageClassifier {
         String hostedModelName = HOSTED_FLOAT_MODEL_NAME;
         String localModelPath = LOCAL_FLOAT_MODEL_PATH;
 
-        FirebaseModelOptions modelOptions = new FirebaseModelOptions.Builder()
-                .setCloudModelName(hostedModelName)
-                .setLocalModelName(localModelName)
-                .build();
         FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions
                 .Builder()
                 .requireWifi()
                 .build();
+        //Bundle the model with the app
         FirebaseLocalModelSource localModelSource = new FirebaseLocalModelSource.Builder(localModelName)
                 .setAssetFilePath(localModelPath).build();
+        //Build a FirebaseCloudModelSource object by specifying the same name assigned in the Firebase console
         FirebaseCloudModelSource cloudSource = new FirebaseCloudModelSource.Builder(hostedModelName)
                 .enableModelUpdates(true)
                 .setInitialDownloadConditions(conditions)
                 .setUpdatesDownloadConditions(conditions)
+                .build();
+        FirebaseModelOptions modelOptions = new FirebaseModelOptions.Builder()
+                .setCloudModelName(hostedModelName)
+                .setLocalModelName(localModelName)
                 .build();
         FirebaseModelManager manager = FirebaseModelManager.getInstance();
         manager.registerLocalModelSource(localModelSource);
@@ -115,6 +117,7 @@ public class CustomImageClassifier {
         int[] inputDims = {DIM_BATCH_SIZE, DIM_IMG_SIZE_X, DIM_IMG_SIZE_Y, DIM_PIXEL_SIZE};
         int[] outputDims = {1, labelList.size()};
 
+        //Specifying input and output
         int dataType = FirebaseModelDataType.FLOAT32;
         dataOptions = new FirebaseModelInputOutputOptions.Builder()
                 .setInputFormat(0, dataType, inputDims)
@@ -137,7 +140,7 @@ public class CustomImageClassifier {
         ByteBuffer imgData = convertBitmapToByteBuffer(buffer, width, height);
 
         FirebaseModelInputs inputs = new FirebaseModelInputs.Builder().add(imgData).build();
-        // Here's where the magic happens!!
+        // Get result as array of sorted labels
         return interpreter.run(inputs, dataOptions)
                 .addOnFailureListener(new OnFailureListener() {
                     @Override

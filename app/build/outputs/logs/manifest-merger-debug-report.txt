@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-45:12
 MERGED from [com.karumi:dexter:4.2.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\dexter-4.2.0.aar\9e9c9bd8cca55475648a4ede0b41d465\AndroidManifest.xml:17:1-32:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\7fa7e21dee51d20ddc0faf2161965f33\AndroidManifest.xml:17:1-22:12
 MERGED from [com.firebaseui:firebase-ui-storage:0.6.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\firebase-ui-storage-0.6.0.aar\d96c5608dc5e54add79ada3d89be1c80\AndroidManifest.xml:2:1-11:12
@@ -58,20 +58,20 @@ MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Martina\.gradle\ca
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\53cfb884ec74bcf8ed12ceb7401ba841\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\d934ac0c31246b9bc8e4a0df6c248bb8\AndroidManifest.xml:2:1-9:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\dbce498aa3d504bb6cd8d66d29d33dcd\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-45:12
 	package
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-45:12
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-45:12
 		INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:11-69
@@ -101,20 +101,28 @@ MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\Martina\.gradle\c
 MERGED from [com.google.firebase:firebase-iid:17.0.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.3.aar\de81a3d80442b467bddc18977bb9b3a0\AndroidManifest.xml:23:5-67
 	android:name
 		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:9:5-80
+	android:name
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:9:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:10:5-80
+	android:name
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:10:22-78
 uses-feature#android.hardware.camera
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:9:5-60
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:12:5-60
 MERGED from [com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\zxing-android-embedded-3.5.0.aar\bbf2fc65aaeda3e02a1324f1079343aa\AndroidManifest.xml:24:5-26:36
 MERGED from [com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\zxing-android-embedded-3.5.0.aar\bbf2fc65aaeda3e02a1324f1079343aa\AndroidManifest.xml:24:5-26:36
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:9:19-57
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:12:19-57
 uses-feature#android.hardware.camera.autofocus
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:10:5-70
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:13:5-70
 MERGED from [com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\zxing-android-embedded-3.5.0.aar\bbf2fc65aaeda3e02a1324f1079343aa\AndroidManifest.xml:32:5-34:36
 MERGED from [com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\zxing-android-embedded-3.5.0.aar\bbf2fc65aaeda3e02a1324f1079343aa\AndroidManifest.xml:32:5-34:36
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:10:19-67
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:13:19-67
 application
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:12:5-37:19
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:15:5-40:19
 MERGED from [com.karumi:dexter:4.2.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\dexter-4.2.0.aar\9e9c9bd8cca55475648a4ede0b41d465\AndroidManifest.xml:26:5-30:19
 MERGED from [com.karumi:dexter:4.2.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\dexter-4.2.0.aar\9e9c9bd8cca55475648a4ede0b41d465\AndroidManifest.xml:26:5-30:19
 MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.1.aar\204cee3e2dacd22844093d209b8b97d7\AndroidManifest.xml:7:5-20
@@ -168,51 +176,51 @@ MERGED from [com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Martina\.gra
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\d934ac0c31246b9bc8e4a0df6c248bb8\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\d934ac0c31246b9bc8e4a0df6c248bb8\AndroidManifest.xml:7:5-20
 	android:supportsRtl
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:20:9-35
 	android:label
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:15:9-41
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:18:9-41
 	android:roundIcon
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:16:9-54
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:19:9-54
 	android:icon
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:14:9-43
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:17:9-43
 	android:allowBackup
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:13:9-35
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:16:9-35
 	android:theme
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:18:9-40
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:21:9-40
 activity#com.example.detectorapp.MainActivity
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:20:9-25:20
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:23:9-28:20
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:20:19-47
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:23:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:21:13-24:29
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:24:13-27:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:22:17-69
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:25:17-69
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:22:25-66
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:25:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:26:17-77
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:26:27-74
 activity#com.example.detectorapp.DetectCardActivity
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:27:9-28:49
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:30:9-31:49
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:28:13-47
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:31:13-47
 activity#com.example.detectorapp.DetectBarcodeActivity
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:30:9-31:52
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:33:9-34:52
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:31:13-50
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:34:13-50
 activity#com.example.detectorapp.CreateCardActivity
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:33:9-35:66
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:36:9-38:66
 	android:parentActivityName
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:35:13-64
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:38:13-64
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:34:13-47
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:37:13-47
 meta-data#com.google.firebase.ml.vision.DEPENDENCIES
-ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:39:5-41:52
+ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:42:5-44:52
 	android:value
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:41:9-49
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:44:9-49
 	android:name
-		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:40:9-66
+		ADDED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:43:9-66
 uses-sdk
 INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml
@@ -489,12 +497,8 @@ ADDED from [com.google.android.gms:play-services-basement:16.1.0] C:\Users\Marti
 		ADDED from [com.google.android.gms:play-services-basement:16.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.1.0.aar\29102190947aa694214b47a203eadd3e\AndroidManifest.xml:25:13-66
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:16.1.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.1.0.aar\29102190947aa694214b47a203eadd3e\AndroidManifest.xml:24:13-58
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12 reason: org.tensorflow.lite has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12 reason: org.tensorflow.lite has a targetSdkVersion < 4
-uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-42:12 reason: org.tensorflow.lite requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\Martina\Downloads\DetectorApp\app\src\main\AndroidManifest.xml:2:1-45:12 reason: org.tensorflow.lite has a targetSdkVersion < 4
 uses-feature#android.hardware.camera.front
 ADDED from [com.journeyapps:zxing-android-embedded:3.5.0] C:\Users\Martina\.gradle\caches\transforms-1\files-1.1\zxing-android-embedded-3.5.0.aar\bbf2fc65aaeda3e02a1324f1079343aa\AndroidManifest.xml:27:5-29:36
 	android:required

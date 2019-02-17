@@ -76,7 +76,10 @@ public abstract class VisionProcessorBase<T> implements VisionImageProcessor {
         detectInVisionImage(bitmap, FirebaseVisionImage.fromByteBuffer(data, metadata), frameMetadata, graphicOverlay);
     }
 
-    private void detectInVisionImage(final Bitmap originalCameraImage, FirebaseVisionImage image, final FrameMetadata metadata, final GraphicOverlay graphicOverlay) {
+    private void detectInVisionImage(final Bitmap originalCameraImage,
+                                     FirebaseVisionImage image,
+                                     final FrameMetadata metadata,
+                                     final GraphicOverlay graphicOverlay) {
         detectInImage(image)
                 .addOnSuccessListener(
                         new OnSuccessListener<T>() {

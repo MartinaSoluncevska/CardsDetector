@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -92,8 +93,12 @@ public class CreateCardActivity extends AppCompatActivity{
 
         mStorage = FirebaseStorage.getInstance().getReference();
         mRef = FirebaseDatabase.getInstance();
+        mRef.setPersistenceEnabled(true);
+
         mRef.getReference("app_title").setValue("Realtime Database");
         mDatabase = mRef.getReference("cards");
+        mDatabase.keepSynced(true);
+        mDatabase.onDisconnect().setValue("I disconnected!");
 
         //Generate image dynamically, based on the cardId that the card we are detecting has.
         createCover(cardId);

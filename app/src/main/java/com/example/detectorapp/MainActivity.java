@@ -114,7 +114,6 @@ public class MainActivity extends AppCompatActivity{
         distances = new ArrayList<>();
         uID = Secure.getString(getContentResolver(), Secure.ANDROID_ID);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.appname);
         setSupportActionBar(toolbar);
 
@@ -148,8 +147,14 @@ public class MainActivity extends AppCompatActivity{
         mAdapter = new MyAdapter(MainActivity.this, itemList);
 
         database = FirebaseDatabase.getInstance();
+        database.setPersistenceEnabled(true);
+
         databaseReference = database.getReference("cards").child(uID);
+        databaseReference.keepSynced(true);
+        databaseReference.onDisconnect().setValue("I disconnected!");
+
         coordsReference = database.getReference("coordinates");
+        coordsReference.keepSynced(true);
 
         //Populate recycler view from database, then retrieve latitude and longitude
         retrieveData();
@@ -171,15 +176,16 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void init(){
+        // An instance from the Google Play Services' location API
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         settingsClient = LocationServices.getSettingsClient(this);
         locationCallback = new LocationCallback(){
             @Override
             public void onLocationResult(LocationResult locationResult) {
                 super.onLocationResult(locationResult);
-
                 //get current location as result
                 location = locationResult.getLastLocation();
+                //make changes using this result
                 updateUI();
             }
         };

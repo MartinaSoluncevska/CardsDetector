@@ -1,11 +1,17 @@
 package com.example.detectorapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -18,17 +24,29 @@ import com.example.detectorapp.CameraClasses.CameraSource;
 import com.example.detectorapp.CameraClasses.CameraSourcePreview;
 import com.example.detectorapp.CameraClasses.GraphicOverlay;
 import com.example.detectorapp.custommodel.CustomImageClassifierProcessor;
+import com.example.detectorapp.custommodel.CustomImageClassifierProcessor.*;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.common.FirebaseMLException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static android.os.Environment.getExternalStoragePublicDirectory;
+import static java.io.File.separator;
 
 /**
   * This activity does classification based on custom tensorflow-lite model, to predict which type of card is being detected.
@@ -43,6 +61,11 @@ public class DetectCardActivity extends AppCompatActivity implements CustomImage
     private CameraSourcePreview preview;
     private GraphicOverlay graphicOverlay;
 
+    private File imageFile;
+    private StorageReference uploadsStorage;
+
+    private ArrayList<List<String>> finalArray = new ArrayList<>();
+
     TextView title;
 
     @Override
@@ -52,10 +75,11 @@ public class DetectCardActivity extends AppCompatActivity implements CustomImage
 
         preview = findViewById(R.id.firePreview);
         graphicOverlay = findViewById(R.id.fireFaceOverlay);
-
         title = (TextView) findViewById(R.id.text);
 
         CustomImageClassifierProcessor.cardDetectorListener = this;
+
+        uploadsStorage = FirebaseStorage.getInstance().getReference().child("uploaded_photos/");
 
         if(allPermissionsGranted()){
             createCameraSource();
@@ -168,11 +192,11 @@ public class DetectCardActivity extends AppCompatActivity implements CustomImage
     @Override
     public void onRequestPermissionsResult(
             int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        Log.i(TAG, "Permission granted!");
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(allPermissionsGranted()){
+            Log.i(TAG, "Permission granted!");
             createCameraSource();
         }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     private static boolean isPermissionGranted(Context context, String permission) {
@@ -185,18 +209,80 @@ public class DetectCardActivity extends AppCompatActivity implements CustomImage
         return false;
     }
 
+    private String getPhotoTime(){
+        SimpleDateFormat sdf=new SimpleDateFormat("ddMMyy_hhmmss");
+        return sdf.format(new Date());
+    }
+
     /**
-     * After 5 seconds, the method returns the label with highest prediction value (the last element in the label list, as the labels are sorted)
-     * and the same value is passed to the next activity using Intent.
+     * Takes a picture using the existing camera source and saves it locally and on cloud. If the folder
+     * doesn't exist yet on the device, it will be created as a subfolder in the gallery.
+     **/
+    private void takeSnapshot(byte[] data){
+        try {
+            // convert byte array into bitmap
+            Bitmap loadedImage = BitmapFactory.decodeByteArray(data, 0, data.length);
+            Bitmap rotatedBitmap = Bitmap.createBitmap(loadedImage, 0, 0, loadedImage.getWidth(), loadedImage.getHeight(),
+                    new Matrix(), false);
+
+            File dir = new File(getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Downloads");
+            boolean success = true;
+            if (!dir.exists())
+                success = dir.mkdirs();
+
+            if (success) {
+                imageFile = new File(dir.getAbsolutePath() + separator + getPhotoTime() + "Image.jpg");
+                imageFile.createNewFile();
+            } else {
+                Toast.makeText(getBaseContext(), "Image Not saved", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // save image into gallery
+            ByteArrayOutputStream ostream = new ByteArrayOutputStream();
+            rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, ostream);
+            FileOutputStream fos = new FileOutputStream(imageFile);
+            fos.write(ostream.toByteArray());
+            fos.close();
+
+            //upload image to firebase storage
+            Uri uploadUri = Uri.fromFile(imageFile);
+            final String cloudFilePath = uploadUri.getLastPathSegment();
+            uploadsStorage.child(cloudFilePath).putFile(uploadUri).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.e(TAG, "Failed to upload");
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(DetectCardActivity.this, "Image has been uploaded", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            ContentValues values = new ContentValues();
+            values.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());
+            values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+            values.put(MediaStore.MediaColumns.DATA, imageFile.getAbsolutePath());
+            DetectCardActivity.this.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+            finish();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * After 5 seconds, the method returns the label with highest prediction value (the last element in the label list,
+     * as the labels are sorted) and the same value is passed to the next activity using Intent.
      **/
     @Override
-    public void onTypeDetected(final List<String> labels) {
+    public void onTypeDetected(final List<String> elements) {
         final Timer timer = new Timer("Timer");
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 Intent thisintent = new Intent(DetectCardActivity.this, DetectBarcodeActivity.class);
-                thisintent.putExtra("type", labels.get(labels.size() - 1));
+                thisintent.putExtra("type", elements.get(elements.size() - 1));
                 thisintent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 thisintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(thisintent);
@@ -204,8 +290,8 @@ public class DetectCardActivity extends AppCompatActivity implements CustomImage
                 finish();
             }
         }, 5000);
-
-        /*final List<Float> values = new ArrayList<>();
+    }
+        /*List<Float> values = new ArrayList();
         Pattern pattern = Pattern.compile("([0-9]+[.][0-9]+)");
         for(int i = 0; i < results.size(); i++){
             List<String> sample = results.get(i);
@@ -216,5 +302,4 @@ public class DetectCardActivity extends AppCompatActivity implements CustomImage
                 values.add(number);
             }
         }*/
-    }
 }
